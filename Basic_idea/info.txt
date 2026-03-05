@@ -1,0 +1,180 @@
+1. What Conv2d Means
+    Conv2d stands for 2-Dimensional Convolution Layer.
+    It is used when the input is an image, because images have height and width.
+    In PyTorch, it is written like this:
+        nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0)
+    Example:
+        nn.Conv2d(3, 16, 3)
+    ____________________________________________________________________
+   | Parameter	    |  Meaning                                          |
+   ---------------------------------------------------------------------|
+   | in_channels	|    number of channels in input image              |
+   | out_channels   |	number of filters the network learns            |
+   | kernel_size	|    size of the filter                             |
+   | stride	        |   how far the filter moves each step              |
+   | padding	    |    adds border pixels so image size doesn't shrink|
+    ---------------------------------------------------------------------
+
+
+batch_size mean how many can can pass to train in one epochs
+    Dataset = 1000 images
+    Batch size = 50
+    Iterations per epoch = 1000 / 50 = 20
+
+stride is the step size that the filter (kernel) moves across the image.
+     Think of it like a scanner sliding over a photo
+
+
+1. ReLU (Rectified Linear Unit)
+    What it does
+        ReLU removes negative numbers and keeps positive numbers.
+        Formula:
+        ReLU(x) = max(0, x)
+    So:
+        -5 → 0
+        -1 → 0
+         3 → 3
+        10 → 10
+
+2. MaxPool2d
+    What it does
+        It shrinks the image but keeps the most important value.
+    Example input:
+        4 6
+        3 2
+        MaxPool (2×2):
+        6
+        It picks the maximum number.
+    Why we use it
+        makes the model faster
+        reduces memory
+        keeps important features
+    Example:
+        Input image: 28x28
+        After pooling: 14x14
+    PyTorch example
+        nn.MaxPool2d(2)
+    Think of it like summarizing a paragraph into one key word 📦
+
+
+3. Flatten
+    What it does
+        It converts a matrix into a long vector.
+    Example:
+        Before flatten:
+            2 x 2 x 3 tensor
+
+            [[1 2]
+             [3 4]]
+
+            [[5 6]
+             [7 8]]
+
+            [[9 10]
+             [11 12]]
+        After flatten:
+            [1,2,3,4,5,6,7,8,9,10,11,12]
+    Why?    
+         Because the final neural network layers need a vector.
+    PyTorch
+        nn.Flatten()
+    Think of it like rolling a carpet into a tube 🧵
+
+
+
+4. Linear Layer (Fully Connected Layer)
+        This is where the final decision happens.
+        It takes numbers and predicts the answer.
+    Example:
+        Input features → output prediction
+    Example problem:
+        Cat vs Dog
+        Output might be:
+        [0.2 , 0.8]
+        Meaning:
+        Cat: 20%
+        Dog: 80%
+    PyTorch
+        nn.Linear(128, 10)
+    Meaning:
+        128 inputs → 10 outputs
+    Think of it like a judge deciding the final result ⚖️
+
+
+
+5. Backpropagation
+    This is how the neural network learns from mistakes.
+    Process:
+        1. Make prediction
+        2. Compare with correct answer
+        3. Calculate error
+        4. Adjust weights
+    Example:
+        Prediction = Dog
+        Actual = Cat
+        Error happens.
+        Backpropagation tells the network:
+        "You were wrong. Adjust your neurons."
+        Then it updates the weights.
+        This happens thousands of times until the network improves.
+        Think of it like a student correcting mistakes after checking answers 📚
+
+
+6. Loss Function
+    Loss measures how wrong the prediction is.
+    Example:
+        Prediction: 0.8
+        Actual: 1
+        Loss: 0.2
+        Small loss = good prediction
+        Big loss = bad prediction
+        Common loss functions:
+        MSE (Mean Squared Error)
+        Used for numbers.
+    Example:
+        Predicted = 5
+        Actual = 7
+        Loss = (5-7)^2 = 4
+    CrossEntropyLoss
+        Used for classification.
+        Example:
+            Classifying digits 0-9
+    PyTorch:
+        nn.CrossEntropyLoss()
+    Think of loss like a scoreboard telling the model how bad it played 🎯
+
+How Everything Works Together
+
+Full pipeline:
+
+Image
+ ↓
+Conv2d
+ ↓
+ReLU
+ ↓
+MaxPool
+ ↓
+Flatten
+ ↓
+Linear Layer
+ ↓
+Prediction
+ ↓
+Loss Function
+ ↓
+Backpropagation
+ ↓
+Model learns
+
+After thousands of training steps, the network becomes smart.
+Example Small CNN
+model = nn.Sequential(
+    nn.Conv2d(1, 32, 3),
+    nn.ReLU(),
+    nn.MaxPool2d(2),
+
+    nn.Flatten(),
+
+    nn.Linear(5408, 10)
+)

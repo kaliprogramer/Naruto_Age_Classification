@@ -1,0 +1,8 @@
+torch
+torchvision
+streamlit
+pillow
+base64
+numpy
+requests
+io
