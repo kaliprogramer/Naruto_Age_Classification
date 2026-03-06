@@ -8,6 +8,7 @@ import base64
 import numpy as np
 import requests
 from io import BytesIO  # <-- added for proper image handling
+import os
 
 # -------------------- CONFIGURATION --------------------
 st.set_page_config(
@@ -53,7 +54,7 @@ class SimpleCNN(nn.Module):
 def load_model():
     model = SimpleCNN(num_classes=10, img_size=IMG_SIZE)  # force 10 classes
     try:
-        state = torch.load("/Core/naruto_cnn_weights.pth", map_location=device)
+        state = torch.load(os.path.join("..", "Core", "naruto_cnn_weights.pth"), map_location=device)
         model.load_state_dict(state)
         model.to(device)
         model.eval()
