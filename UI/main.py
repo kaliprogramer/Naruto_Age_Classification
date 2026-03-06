@@ -48,12 +48,12 @@ class SimpleCNN(nn.Module):
         x = F.log_softmax(self.fc3(x), dim=1)
         return x
 
-# -------------------- CACHED MODEL LOADER --------------------
+# -------------------- CACHED  LOADER --------------------
 @st.cache_resource
 def load_model():
     model = SimpleCNN(num_classes=10, img_size=IMG_SIZE)  # force 10 classes
     try:
-        state = torch.load("../Core/naruto_cnn_weights.pth", map_location=device)
+        state = torch.load("/Core/naruto_cnn_weights.pth", map_location=device)
         model.load_state_dict(state)
         model.to(device)
         model.eval()
