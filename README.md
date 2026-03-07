@@ -38,5 +38,6 @@ A Streamlit web app that predicts the age group of Naruto characters from upload
 
 1. **Clone the repository**
 ```bash
-git clone <YOUR_REPO_URL>
-cd <REPO_FOLDER>
+git clone https://github.com/kaliprogramer/Naruto_Age_Classification/
+cd Naruto_Age_Classification/UI
+streamlit run main.py
