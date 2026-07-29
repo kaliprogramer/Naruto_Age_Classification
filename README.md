@@ -36,8 +36,6 @@ A Streamlit web app that predicts the age group of Naruto characters from upload
   <img src="utils/image.png" alt="Heart Failure Survival Predictor AI Banner" width="100%">
 </p>
 
-![Screenshot](https://imgs.search.brave.com/Nk-lOQTwoeQ7tHysY89ZyDuFV1o3hPu3giNSes1_9Ro/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzY5/NDguanBn)
-
 ---
 
 ## 🚀 How to Run Locally
