@@ -1,4 +1,7 @@
 # 🍥 Naruto Age Classifier
+<p align="center">
+  <img src="utils/ChatGPT Image Jul 29, 2026, 01_56_35 PM.png" alt="Heart Failure Survival Predictor AI Banner" width="100%">
+</p>
 
 A Streamlit web app that predicts the age group of Naruto characters from uploaded images using a Convolutional Neural Network (CNN). This project demonstrates computer vision with PyTorch in a fun and interactive way for anime fans.  
 
@@ -29,6 +32,9 @@ A Streamlit web app that predicts the age group of Naruto characters from upload
 ---
 
 ## 🖼️ Sample Screenshot
+<p align="center">
+  <img src="utils/image.png" alt="Heart Failure Survival Predictor AI Banner" width="100%">
+</p>
 
 ![Screenshot](https://imgs.search.brave.com/Nk-lOQTwoeQ7tHysY89ZyDuFV1o3hPu3giNSes1_9Ro/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzY5/NDguanBn)
 
